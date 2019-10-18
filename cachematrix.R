@@ -4,12 +4,20 @@
 
 ## mackeCacheMatrix function - creates a special matrix that cache its inverse
 
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix <- function(x = matrix()) { ## matrix input to function 
+	invMatrix <- NULL 		    ## inverse value set to null 
+	setMatrix <- function(y){           ##  <<- operator used to assign value to ofject in different environment 
+		x <<- y 
+		invMatrix <<- NULL 
+		}
+	getMatrix <- function() x		##gets value of matrix
+	setInverse <- function(inverse) inv <<- inverse		## sets value of inverse matrix
+	getInverse <- function() inv				## fetches value of inverse matrix
+	  list(setMatrix = setMatrix, getMatrix = getMatrix, setInverse = setInverse, getInverse = getInverse) ##values listed in respective variables	
 }
 
 
-##cache Solve function - calculates the inverse of the matric returned 
+##cache Solve function - calculates the inverse of the matrix returned 
 ## by the prrevious function 
 
 cacheSolve <- function(x, ...) {
